@@ -34,12 +34,14 @@
 			  <td>{{ funcionario.salario }}</td> 
 			  <td>{{ funcionario.email }}</td> 
 			  <td>{{ funcionario.idade }}</td>
-			  <td><span @click="">&#9998;</span>
-				<span  @click="">&#10006;</span>
+			  <td><span v-on:click="editarItem(funcionario.id, funcionario.nome, funcionario.setor.nome, funcionario.salario, funcionario.email, funcionario.idade)">&#9998;</span>
+				<span  v-on:click="deletarItem(funcionario.id)">&#10006;</span>
 			  </td>
 			</tr>
 		  </tbody>
 		</table>
+		<br><br>
+		<button type="button" class="button" v-on:click="cadFuncionario()">Novo funcionário</button>
 	  </div>
 
 	<script src="resources/js/vue.js"></script>

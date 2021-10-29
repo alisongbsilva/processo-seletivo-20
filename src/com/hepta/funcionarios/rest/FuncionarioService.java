@@ -1,27 +1,19 @@
 package com.hepta.funcionarios.rest;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.hepta.funcionarios.entity.Funcionario;
+import com.hepta.funcionarios.persistence.FuncionarioDAO;
+import org.hibernate.HibernateError;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
-import com.hepta.funcionarios.entity.Funcionario;
-import com.hepta.funcionarios.persistence.FuncionarioDAO;
-import org.hibernate.HibernateError;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/funcionarios")
 public class FuncionarioService {
@@ -56,9 +48,9 @@ public class FuncionarioService {
 		try {
 			dao.save(Funcionario);
 		} catch (Exception e){
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao adicionar funcionário").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao adicionar funcionário!").build();
 		}
-		return Response.status(Status.OK).entity("Salvo").build();
+		return Response.status(Status.OK).entity("Funcionário cadastrado com sucesso!").build();
 	}
 
 	/**
@@ -77,7 +69,7 @@ public class FuncionarioService {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
 		}
 		catch (Exception e){
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar funcionário").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar funcionário!").build();
 		}
 
 		GenericEntity<List<Funcionario>> entity = new GenericEntity<List<Funcionario>>(Funcionarios) {
@@ -100,9 +92,9 @@ public class FuncionarioService {
 		try {
 			dao.update(Funcionario);
 		} catch (Exception e){
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao atualizar funcionário").build();
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao atualizar funcionário!").build();
 		}
-		return Response.status(Status.OK).entity("Salvo").build();
+		return Response.status(Status.OK).entity("Funcionário atualizado com sucesso!").build();
 	}
 
 	/**
@@ -120,7 +112,7 @@ public class FuncionarioService {
 		} catch (Exception e){
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao excluir funcionário.").build();
 		}
-		return Response.status(Status.OK).entity("Salvo").build();
+		return Response.status(Status.OK).entity("Funcionário excluído com sucesso!").build();
 	}
 
 }
