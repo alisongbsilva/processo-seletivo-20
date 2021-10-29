@@ -1,0 +1,18 @@
+body {
+    background-color: whitesmoke;
+}
+
+.main {
+    margin-top: 2em;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 2em;
+    padding: 3em;
+    border-radius: 20px;
+    background-color: white;
+    align-self: center;
+}
+
+.newfunc {
+    margin-top: 2em;
+}

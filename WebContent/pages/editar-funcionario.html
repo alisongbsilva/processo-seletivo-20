@@ -1,48 +1,58 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="pt-br">
 
-<head>
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="../favicon.ico"/>
-	<title>Atualização de Funcionário </title>
-	<link rel="stylesheet" type="text/css"
-		href="../resources/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css"
-		href="./resources/css/main.css">
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="../favicon.ico"/>
+		<title>Atualização de Funcionário </title>
+		<link rel="stylesheet" type="text/css"
+			href="../resources/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css"
+			href="./resources/css/main.css">
+		<link rel="stylesheet" type="text/css"
+			href="../resources/css/custom.css">
+	</head>
 
-<body>
-
-<div id="atualizacao" class=>
-		<h4>Atualização de cadastro de funcionário</h4>
-		<br><br>	
-		<label>Nome</label>
-		<input type="text" name="nome" v-model="funcionario.nome" required>
-		<br><br>
-		<label>Setor</label>
-		<select name="setor" required v-model="funcionario.setor.id">
-			<option v-for="setor in setores" v-bind:value="setor.id">{{ setor.nome }}</option>
-		</select>
-		<br><br>
-		<label>Salario</label>
-		<input type="number" name="salario" v-model="funcionario.salario" min="0.00" max="100000.00" step="0.01" required>
-		<br><br>
-		<label>Email</label>
-		<input type="email" name="email" v-model="funcionario.email" required>
-		<br><br>
-		<label>Idade</label>
-		<input type="number" name="idade" v-model="funcionario.idade" max="199" required>
-		<br><br>
-		<div>
-			<button type="button" class="button" v-on:click="atualizarFuncionario()">Atualizar</button>
-			<br><br>
-			<button type="button" class="button" v-on:click="returnInicio()">Voltar</button>
+	<body>
+	<div class="container">
+		<div class="row">
+			<div id="atualizacao" class="col-md-11 main">
+					<h4>Atualização de cadastro de funcionário</h4>
+					<div class="form-group">
+						<label class="control-label">Nome</label>
+						<input type="text" class="form-control" name="nome" v-model="funcionario.nome" required>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Setor</label>
+						<select name="setor" class="form-control" required v-model="funcionario.setor.id">
+							<option v-for="setor in setores" v-bind:value="setor.id">{{ setor.nome }}</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Salario</label>
+						<input type="number" class="form-control" name="salario" v-model="funcionario.salario" min="0.00"
+							max="100000.00" step="0.01" required>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Email</label>
+						<input type="email" class="form-control" name="email" v-model="funcionario.email" required>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Idade</label>
+						<input type="number" class="form-control" name="idade" v-model="funcionario.idade" max="199"
+							required>
+					</div>
+					<div>
+						<button type="button" class="btn btn-primary" v-on:click="returnInicio()">Voltar</button>
+						<button type="button" class="btn btn-primary" v-on:click="atualizarFuncionario()">Atualizar</button>
+					</div>			
+			</div>
 		</div>
-		
-</div>
+	</div>
 
-	<script src="../resources/js/vue.js"></script>
-	<script src="../resources/js/axios.min.js"></script>
-	<script src="../resources/js/atualizacao-de-funcionario.js"></script>
-</body>
+		<script src="../resources/js/vue.js"></script>
+		<script src="../resources/js/axios.min.js"></script>
+		<script src="../resources/js/atualizacao-de-funcionario.js"></script>
+	</body>
 </html>
