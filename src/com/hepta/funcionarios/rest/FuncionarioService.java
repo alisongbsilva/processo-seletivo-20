@@ -78,6 +78,27 @@ public class FuncionarioService {
 	}
 
 	/**
+	 * Busca um Funcionario
+	 *
+	 * @return response 200 (OK) - Conseguiu listar
+	 */
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@GET
+	public Response FuncionarioReadOne(@PathParam("id") Integer id) {
+		Funcionario funcionario;
+		try {
+			funcionario = dao.find(id);
+		} catch (HibernateError e) {
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+		}
+		catch (Exception e){
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar funcionário!").build();
+		}
+		return Response.status(Status.OK).entity(funcionario).build();
+	}
+
+	/**
 	 * Atualiza um Funcionario
 	 * 
 	 * @param id:          id do Funcionario

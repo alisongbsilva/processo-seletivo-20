@@ -34,7 +34,7 @@
 			  <td>{{ funcionario.salario }}</td> 
 			  <td>{{ funcionario.email }}</td> 
 			  <td>{{ funcionario.idade }}</td>
-			  <td><span v-on:click="editarItem(funcionario.id, funcionario.nome, funcionario.setor.nome, funcionario.salario, funcionario.email, funcionario.idade)">&#9998;</span>
+			  <td><span v-on:click="editarItem(funcionario.id)">&#9998;</span>
 				<span  v-on:click="deletarItem(funcionario.id)">&#10006;</span>
 			  </td>
 			</tr>

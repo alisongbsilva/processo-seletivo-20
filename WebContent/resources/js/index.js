@@ -34,7 +34,7 @@ var inicio = new Vue({
 
         },
         editarItem(id){
-            
+            window.location.href = `pages/editar-funcionario.html?${id}`;
         },
         cadFuncionario(){
             window.location.href = "pages/novo-funcionario.html";

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="../favicon.ico"/>
+	<title>Atualização de Funcionário </title>
+	<link rel="stylesheet" type="text/css"
+		href="../resources/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="./resources/css/main.css">
+</head>
+
+<body>
+
+<div id="atualizacao" class=>
+		<h4>Atualização de cadastro de funcionário</h4>
+		<br><br>	
+		<label>Nome</label>
+		<input type="text" name="nome" v-model="funcionario.nome" required>
+		<br><br>
+		<label>Setor</label>
+		<select name="setor" required v-model="funcionario.setor.id">
+			<option v-for="setor in setores" v-bind:value="setor.id">{{ setor.nome }}</option>
+		</select>
+		<br><br>
+		<label>Salario</label>
+		<input type="number" name="salario" v-model="funcionario.salario" min="0.00" max="100000.00" step="0.01" required>
+		<br><br>
+		<label>Email</label>
+		<input type="email" name="email" v-model="funcionario.email" required>
+		<br><br>
+		<label>Idade</label>
+		<input type="number" name="idade" v-model="funcionario.idade" max="199" required>
+		<br><br>
+		<div>
+			<button type="button" class="button" v-on:click="atualizarFuncionario()">Atualizar</button>
+			<br><br>
+			<button type="button" class="button" v-on:click="returnInicio()">Voltar</button>
+		</div>
+		
+</div>
+
+	<script src="../resources/js/vue.js"></script>
+	<script src="../resources/js/axios.min.js"></script>
+	<script src="../resources/js/atualizacao-de-funcionario.js"></script>
+</body>
+</html>
